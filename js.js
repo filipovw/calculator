@@ -68,7 +68,7 @@ class Calculator {
     if (isNaN(integerDigits)) {
       integerDisplay = "";
     } else {
-      integerDisplay = integerDigits.toLocaleString("en", {
+      integerDisplay = integerDigits.toLocaleString("bg", {
         maximumFractionDigits: 0,
       });
     }
@@ -141,7 +141,6 @@ deleteButton.addEventListener("click", (button) => {
 
 document.onkeydown = function (event) {
   if (!isNaN(parseFloat(event.key))) {
-    console.log(event.key);
     calculator.appendNumber(event.key);
     calculator.updateDisplay();
   }
