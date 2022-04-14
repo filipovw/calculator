@@ -138,3 +138,11 @@ deleteButton.addEventListener("click", (button) => {
   calculator.delete();
   calculator.updateDisplay();
 });
+
+document.onkeydown = function (event) {
+  if (!isNaN(parseFloat(event.key))) {
+    console.log(event.key);
+    calculator.appendNumber(event.key);
+    calculator.updateDisplay();
+  }
+};
