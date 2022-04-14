@@ -46,6 +46,10 @@ class Calculator {
         computation = prev * current;
         break;
       case "÷":
+        if (current === 0) {
+          alert("Go fuck your mother!");
+          return;
+        }
         computation = prev / current;
         break;
       default:
@@ -76,15 +80,15 @@ class Calculator {
   }
 
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.getDisplayNumber(
+    this.currentOperandTextElement.textContent = this.getDisplayNumber(
       this.currentOperand
     );
     if (this.operation != null) {
-      this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
+      this.previousOperandTextElement.textContent = `${this.getDisplayNumber(
         this.previousOperand
       )} ${this.operation}`;
     } else {
-      this.previousOperandTextElement.innerText = "";
+      this.previousOperandTextElement.textContent = "";
     }
   }
 }
@@ -108,14 +112,14 @@ const calculator = new Calculator(
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.appendNumber(button.innerText);
+    calculator.appendNumber(button.textContent);
     calculator.updateDisplay();
   });
 });
 
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.chooseOperation(button.innerText);
+    calculator.chooseOperation(button.textContent);
     calculator.updateDisplay();
   });
 });
